@@ -61,7 +61,7 @@ const Login = () => {
         }
       }}
     >
-      <Box>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 }}>
         <AccountCircleOutlinedIcon sx={{ fontSize: 50 }} />
         <Typography variant="h4" color="initial">Sign In</Typography>
       </Box>

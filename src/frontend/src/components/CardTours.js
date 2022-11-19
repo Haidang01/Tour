@@ -66,15 +66,15 @@ export default function CardTours({ imageFile, description, title, tags, _id, na
       <CardContent>
         {tags.map((tag, index) => {
           return (
-            <Typography variant="p" marginLeft={1} fontSize={15} color="text.secondary">
+            <Typography variant="p" color={'#4c9de4'} marginLeft={1} fontSize={15} >
               #{tag}
             </Typography>
           )
         })}
-        <Typography fontWeight={700} sx={{ marginTop: '4px', marginBottom: '5px', marginX: '9px' }} variant="h5" color="text.secondary">
+        <Typography fontWeight={700} sx={{ marginTop: '4px', marginBottom: '5px', paddingX: '5px' }} variant="h5" color="text.secondary">
           {title}
         </Typography>
-        <Typography sx={{ paddingX: '5px', maxWidth: '50px' }} variant="div" color=" #000">
+        <Typography sx={{ paddingX: '5px', maxWidth: '50px' }} variant="p" color=" #000">
           {excerpt(description)}
           <Link style={{ textDecoration: 'none', color: '#4c9de4', marginLeft: '2px' }} to={`/getTour/${_id}`} >Read More</Link>
         </Typography>

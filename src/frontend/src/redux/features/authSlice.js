@@ -6,7 +6,7 @@ export const login = createAsyncThunk(
     try {
       const response = await api.signIn(formValue);
       toast.success('Login Successfully');
-      navigate('/');
+      navigate('/home');
       console.log(response.data);
       return response.data;
     } catch (error) {

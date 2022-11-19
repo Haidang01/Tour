@@ -11,8 +11,10 @@ import { useEffect } from 'react';
 import { setUser } from './redux/features/authSlice';
 import AddEditTour from './pages/AddEditTour';
 import Layout from './pages/Layout';
-import DoashBoard from './pages/DoashBoard';
 import SingleTour from './pages/SingleTour';
+import DashBoard from './pages/DashBoard';
+import PrivateRoute from './components/PrivateRoute';
+import NotFound from './pages/NotFound';
 function App() {
   const dispatch = useDispatch();
   // const navigate = useNavigate();
@@ -29,10 +31,29 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Layout />} >
             <Route path="/home" element={<Home />} />
-            <Route path="/doashboard" element={<DoashBoard />} />
-            <Route path="/addTour" element={<AddEditTour />} />
-            <Route path="/editTour:id" element={<AddEditTour />} />
+            <Route path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <DashBoard />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/addTour"
+              element={
+                <PrivateRoute>
+                  <AddEditTour />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/editTour/:id"
+              element={
+                <PrivateRoute>
+                  <AddEditTour />
+                </PrivateRoute>
+              }
+            />
             <Route path="/getTour/:id" element={<SingleTour />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>

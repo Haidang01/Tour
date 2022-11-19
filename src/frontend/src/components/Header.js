@@ -26,7 +26,7 @@ const menu = [
 const menuUser = [
   { page: 'Home', linkPage: '/home' },
   { page: 'Add Tour', linkPage: '/addTour' },
-  { page: 'Doashboard', linkPage: '/doashboard' },
+  { page: 'Dashboard', linkPage: '/dashboard' },
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const settingsUser = ['Profile', 'Account', 'Dashboard', 'Logout'];

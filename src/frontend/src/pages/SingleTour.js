@@ -1,4 +1,4 @@
-import { CardMedia, CircularProgress, Container, Typography } from '@mui/material';
+import { CardMedia, CircularProgress, Container, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -26,29 +26,31 @@ const SingleTour = () => {
           <CircularProgress size={30} />
           Loading...
         </div>
-          : <Box sx={{ border: '1px solid #ccc', background: '#fff', boxShadow: '2px 2px 2px 1px #ccc', borderRadius: '5px' }}>
+          : <Stack sx={{ border: '1px solid #ccc', background: '#fff', boxShadow: '2px 2px 2px 1px #ccc', borderRadius: '5px' }}>
             <CardMedia
               component="img"
               sx={{ maxHeight: '400px', marginBottom: '10px', objectFit: 'cover' }}
               src={imageFile}
             />
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, paddingX: 10, paddingBottom: 3 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, paddingX: 10, paddingBottom: 3 }}>
               <Typography variant='h4' textAlign={'center'} color='#000' fontWeight={600}>{title}</Typography>
               <Typography color={'#000'} variant='p'> Created By: {name}</Typography>
               <Box sx={{ display: 'flex', gap: 1 }}>
                 {tags && tags.map((tag, index) => {
                   return (
-                    <Typography variant='p' color={'#655b5b'} key={index} >#{tag}</Typography>
+                    <Typography variant='body2' color={'#655b5b'} key={index} >#{tag}</Typography>
                   )
                 })}
               </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <CalendarMonthIcon />
-                {moment(createdAt).fromNow()}
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }} >
+                <CalendarMonthIcon fontSize='25px' />
+                <p style={{ fontSize: '13px' }}>
+                  {moment(createdAt).fromNow()}
+                </p>
               </Box>
               <Typography variant='p' color={'#655b5b'}> {description}</Typography>
             </Box>
-          </Box>
+          </Stack>
         }
       </Container>
     </>
